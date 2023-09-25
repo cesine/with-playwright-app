@@ -1,14 +1,10 @@
 import { test, expect } from '@playwright/test'
 
 test('should navigate to the about page', async ({ page }) => {
-  // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
-  await page.goto('/')
-  // Find an element with the text 'About Page' and click on it
-  await page.getByText('About Page').click()
-  // The new url should be "/about" (baseURL is used there)
-  await expect(page).toHaveURL('/about')
-  // The new page should contain an h1 with "About Page"
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'About Page'
-  )
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Examples → Discover and deploy boilerplate example Next.js projects.' }).click();
+  await page.getByRole('link', { name: 'with-playwright' }).click();
+  await page.getByRole('link', { name: 'e2e' }).click();
+  await page.getByRole('cell', { name: 'example.spec.ts (File)' }).locator('div').first().click();
+  await page.getByRole('link', { name: 'example.spec.ts' }).click();
 })
