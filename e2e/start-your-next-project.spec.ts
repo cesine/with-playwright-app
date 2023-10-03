@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://www.google.com/search?q=https%3A%2F%2Fwww..shutterstock.com%2F&oq=https%3A%2F%2Fwww..shutterstock.com%2F&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg60gEJMTAzMzdqMGoyqAIAsAIA&sourceid=chrome&ie=UTF-8');
-  await page.getByRole('link', { name: 'Prijavite se' }).click();
+  // This will show a recapcha after a while because google detects its an automated browser
+  // await page.goto('https://www.google.com/search?q=https%3A%2F%2Fwww..shutterstock.com%2F&oq=https%3A%2F%2Fwww..shutterstock.com%2F&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg60gEJMTAzMzdqMGoyqAIAsAIA&sourceid=chrome&ie=UTF-8');
+  // await page.getByRole('link', { name: 'Prijavite se' }).click();
   await page.goto('https://www.shutterstock.com/');
   // TODO this didnt show the second time
   // await page.getByRole('button', { name: 'Reject All' }).click();
